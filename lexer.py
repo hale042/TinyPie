@@ -40,7 +40,9 @@ def removeFirstToken(str_in):
     str_in[0] = ""
     return r
 
-def createTokenList(str_in):                        # 
+# removes all tokens from the string and creates a list of tuples (type, token)
+# currently the removeFirstToken() function returns a syntax error as a token
+def createTokenList(str_in):
     l = []
     while(str_in[0] != ""):
         '''
@@ -52,6 +54,8 @@ def createTokenList(str_in):                        #
     return l
 
 
+# takes string as arguement, creates a token list, prints it in the format
+# defined in the assignment
 def printTokens(str_in):
     str_wrapper = [str_in]
     token_list = createTokenList(str_wrapper)
