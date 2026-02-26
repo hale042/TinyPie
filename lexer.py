@@ -45,22 +45,23 @@ def removeFirstToken(str_in):
 def createTokenList(str_in):
     l = []
     while(str_in[0] != ""):
-        '''
-        tmp = removeFirstToken(str_in)
-        if tmp[0][0] == "Sytax Error" :
-        '''
-
         l = l + removeFirstToken(str_in)
     return l
 
 
 # takes string as arguement, creates a token list, prints it in the format
 # defined in the assignment
+# prints error message
 def printTokens(str_in):
     str_wrapper = [str_in]
     token_list = createTokenList(str_wrapper)
+
+
     str = "Output <type, token> list: ["
     for element in token_list :
+        if element[0] == "Syntax Error" :
+            print("Syntax Error: Invalid Token \'" + element[1] + "\'")
+            return
         str += "<" + element[0] + "," + element[1] + ">, "
     str = str[: -2]
     str += "]"
@@ -75,6 +76,7 @@ test_list = [   "if ( \"hello world\" ) :",
                 "float cresult = A1 +BBB2 * BBB2",
                 "if (cresult >10):",
                 "print(\"TinyPie \" )",
+                "print (abc123) 1234.234.234",
              ]
 
 for i in test_list:
