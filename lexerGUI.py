@@ -27,7 +27,8 @@ class lexerGUI: #class definition
         self.frame.rowconfigure(0, weight=1)
 
         self.label3 = Label(self.frame, text="Current Processing Line: ").grid(row=0, column=0, sticky=W)
-        self.line_num = Text(self.frame, width=5, height=1).grid(row=0,column=0,sticky=E)
+        self.line_num = Text(self.frame, width=5, height=1)
+        self.line_num.grid(row=0,column=0,sticky=E)
 
         
         self.next_line = Button (self.master, text="Next Line", command=self.nextline)
@@ -38,14 +39,16 @@ class lexerGUI: #class definition
 
         self.line_number = 1
 
-# not yet functional
     def nextline (self):
-        '''
         s = str(self.line_number) + ".0"
-        e = str(self.line_number) + ".end"
+        e = str(self.line_number+1) + ".0"
         line = self.input_box.get(s, e)
         self.output_box.insert(s, line)
-        '''
+
+        self.line_num.delete("1.0", "end")
+        self.line_num.insert("1.0", str(self.line_number))
+
+        self.line_number = self.line_number + 1
         
 
 if __name__ == '__main__':
