@@ -1,7 +1,7 @@
 
 from tkinter import *
 
-class lexerGUI: #class definition
+class lexerGUI:
 
 
     def __init__(self, root):
@@ -15,10 +15,10 @@ class lexerGUI: #class definition
         self.label2 = Label(self.master, text="Lexical Analyzed Result")
         self.label2.grid(row=0,column=1,sticky=W)
         
-        self.input_box = Text(self.master, width=40, height=5)
+        self.input_box = Text(self.master, width=40, height=8)
         self.input_box.grid(row=1, column=0)
 
-        self.output_box = Text(self.master, width=40, height=5)
+        self.output_box = Text(self.master, width=40, height=8)
         self.output_box.grid(row=1, column=1)
 
         self.frame = Frame(self.master)
